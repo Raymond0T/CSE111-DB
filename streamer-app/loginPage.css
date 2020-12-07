@@ -1,0 +1,100 @@
+.login-form-container{
+    background-color: rgb(241, 244, 250);
+    width:400px;
+    height:400px;
+    position: relative;
+    border-radius: 5px;
+    margin: 0 auto 5% auto;
+    box-shadow: 0 0 5px rgb(240, 5, 5), 0 0 5px rgb(240, 5, 5);
+    display: none;
+}
+
+.select-type{
+    background-color: rgb(241, 244, 250);
+    width:400px;
+    height:400px;
+    position: relative;
+    border-radius: 5px;
+    margin: 5% auto;
+    box-shadow: 0 0 5px rgb(240, 5, 5), 0 0 5px rgb(240, 5, 5);
+    display: block;
+}
+
+.login-form-container form{
+    position: absolute;
+    box-sizing: border-box;
+    text-align: center;
+    top:25px;
+    margin: 0 50px;
+    width: 300px;
+    
+}
+
+.form-input{
+    margin: 10px;
+    border:0;
+    border-bottom: 1px solid black;
+    height: 25px;
+    font-size: 20px;
+    width: 75%;
+    outline: none;
+    background: transparent;
+}
+
+.form-input:focus{
+    border: 2px solid blue;
+    box-shadow: inset 0 0 2px blue;
+}
+
+.form-font{
+    font-family: 'Castoro', serif;
+    color: rgb(99, 96, 96);
+    margin-top: 0;
+}
+
+.form-btn{
+    background-color: aquamarine;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    font-size: 25px;
+    padding: 5px;
+    margin: 10px;
+    cursor: pointer;
+    height:40px;
+    width: 130px;
+    font-family: 'Nerko One', cursive;
+}
+.next-btn, .submit-btn{
+    float:right;
+}
+.prev-btn{
+    float:left;
+}
+
+.steps{
+    display: none;
+}
+
+.active, #create-page{
+    display: block;
+}
+.af{
+    margin:0;
+    padding: 10px 0 10px 0;
+    font-size: 32px;
+    text-align: center;
+    color: black;
+}
+
+#accTypeContainer{
+    background-color: rgb(241, 244, 250);
+    width:400px;
+    height:400px;
+    position: relative;
+    border-radius: 5px;
+    margin: 0 auto 5% auto;
+    box-shadow: 0 0 5px rgb(240, 5, 5), 0 0 5px rgb(240, 5, 5);
+    display: none;
+}
+

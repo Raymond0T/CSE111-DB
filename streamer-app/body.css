@@ -1,0 +1,271 @@
+html, body{
+    height: 100%;
+    margin: 0;
+  }
+
+/************ *************************************************************/
+.body-double-img{
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat:no-repeat;
+    background-size:auto;
+    filter: blur(5px);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+.body_container{
+    width: 70%;
+    background-color: rgb(58, 58, 58);
+    margin: auto;
+    height: 100%;
+    text-align: center;    
+}
+/*************************** container that holds everything that goes inside the SEARCH TAB**********/
+#search_container{
+    text-align: center;
+    padding: 32px;
+    display: none;
+}
+#search_bar{
+    width: 50%;
+    left:50%;
+    height:50px;
+    font-size: 35px;
+    border: 2px solid rgb(155, 146, 146);
+    box-shadow: 0 0 15px 4px rgb(138, 135, 135);
+    border-radius: 5px;
+}
+/***********for all filter attribute ***************/
+#filter_container_button{
+    position: relative;
+    width: 70%;
+    margin:auto;
+    display: inline-flex;
+}
+
+.filter_button{
+    font-size: 24px;
+    color: white;
+    margin: 8px;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background: black;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 3px;
+    box-shadow: 3px 3px 8px #888888;
+    cursor: pointer;
+}
+
+.selected, .filter_button:hover{
+    background-color: #888888;
+    transition: 0.3s;
+}
+
+.filter_container_attri{
+    width: 70%;
+    margin: auto;
+}
+.selector_box{
+    font-size: 1.50rem;
+    border-radius: 4px;
+    height: 2rem;
+    margin: 8px;
+}
+.input_manual{
+    font-size: 2rem;
+    border-radius: 4px;
+    margin: 8px;
+}
+.checkbox_style{
+    font-size: 1.25rem;
+    display: inline-block;
+    position: relative;
+    color: white;
+    margin-top: 1rem;
+    padding-left: 2rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.age_input, .location_input{
+    display: none;
+}
+
+#gender_container, #day_container, #team_container, #sponsor_container, #games_container, #age_container, #location_container, #platform_container,#streamer_container{
+    display: none;
+} 
+/*************************** container that holds everything that goes inside the LOGIN TAB**********/
+#logIn_container, .acc_creation_viewer, .acc_creation_streamer{
+    text-align: center;
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: none;
+}
+#logIn_container{
+    display: block;
+}
+
+.logIn_Info{
+    display: block;
+    margin: 32px auto 32px auto;
+    height:55px;
+    font-size: 32px;
+    border: 2px solid rgb(250, 247, 247);
+    box-shadow: 0 0 16px 4px grey;
+    border-radius: 6px;
+}
+
+.logInButton{
+    font-size: 32px;
+    margin: 16px 0 16px 0;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    background-color: black;
+    color: white;
+    box-sizing: border-box;
+    background: black;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.logInButton:hover{
+    background: grey;
+}
+
+.acc_creation_info{
+    margin: 1rem auto 1rem auto;
+    height:1.25rem;
+    font-size: 1rem;
+    border: 2px solid rgb(250, 247, 247);
+    box-shadow: 0 0 16px 4px grey;
+    border-radius: 6px;
+}
+
+#account_type{
+    display: none;
+}
+
+/*************************** container that holds everything that goes inside the MYINFO TAB**********/
+#myinfo_container{
+    display: none;
+}
+
+.user_streamer_container{
+    height: auto;
+    display: block;
+}
+
+#user_streamer_Info{
+    width: 100%;
+    font-size: 24px;
+    color: white;
+    list-style-type: none;
+    float: left;
+    text-align: left;
+    padding: 0;
+}
+
+#user_streamer_Info li{
+    padding: 16px;
+}
+
+
+.user_viewer_container{
+    height: auto;
+    display: none;
+}
+
+#user_viewer_Info{
+    width: 100%;
+    font-size: 24px;
+    color: white;
+    list-style-type: none;
+    float: left;
+    text-align: left;
+    padding: 0;
+}
+
+#user_viewer_Info li{
+    padding: 16px;
+}
+
+.info_mod_button{
+    font-size: 24px;
+    margin: 16px 0 16px 0;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    background-color: black;
+    color: white;
+    box-sizing: border-box;
+    background: black;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/********************container that holds everything that goes inside the HOME TAB *************/
+#home_container{
+    display: none;
+}
+
+/*Prints from the database after getting user's input*/
+.result-container{
+    height:450px;
+    overflow-x:auto;
+}
+.printResult, .user_info_container{
+    color: white;
+    display: block;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto 0 auto;
+    border-spacing:10px; 
+    border-collapse: separate;
+    table-layout: fixed;
+    background-color: #231d4b;
+    overflow-x:auto;
+    border-radius:20px;
+}
+
+.user_info_container{
+    height:500px;
+    padding:2rem;
+}
+.tbl-header{
+    font-size: 25px;
+    color: white;
+    background-color: rgb(224, 21, 21);
+    padding: 20px 15px;
+    margin: 10px;
+    text-transform: uppercase;
+    border:none;
+    border-spacing: 0;
+    border-radius: 10px;
+}
+
+
+.tbl-data{
+    padding:15px;
+    text-align: left;
+    font-size: 18px;
+    border-bottom: 2px solid rgb(8, 8, 8);
+    
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+} 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgb(247, 247, 247); 
+    border-radius: 20px;
+} 
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgb(248, 248, 248); 
+    border-radius: 20px;
+}

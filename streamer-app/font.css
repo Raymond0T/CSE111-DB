@@ -1,0 +1,31 @@
+h2{
+    margin:0;
+    padding: 10px 0 10px 0;
+    font-size: 32px;
+    text-align: center;
+    color: white;
+}
+
+.af{
+    margin:0;
+    padding: 10px 0 10px 0;
+    font-size: 32px;
+    text-align: center;
+    color: white;
+}
+.ff{
+    margin:0;
+    padding: 0.5rem;
+    font-size: 16px;
+    text-align: center;
+    color: black; 
+}
+.given_font{
+    color: rgb(143, 138, 138);
+    font-style: italic;
+    margin:0;
+    padding: 0.5rem;
+    font-size: 16px;
+    text-align: center;
+}
+

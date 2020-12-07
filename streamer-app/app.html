@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name ="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <title>Streamer Index</title>
+        <meta name="description" content="Streamer-Index">
+        <link rel="stylesheet" href="body.css" src="body.css">
+        <link rel="stylesheet" href="header.css" src="header.css">
+        <link rel="stylesheet" href="font.css" src="font.css">
+        <link rel="stylesheet" href="loginPage.css" src="loginPage.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Castoro&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="./js/filterFunction.js" defer></script>
+        <script type="text/javascript" src="./js/homeTabFunction.js" defer></script>
+        <script type="text/javascript" src="./js/loginPage.js" defer></script>
+        <script type="text/javascript" src="./js/clientData.js" defer></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+
+    </head>
+
+    <body>
+        <header class ="header_container">
+            
+            <h1 class = "header_name">
+                Streamer Index
+            </h1>
+            <div id="button_container">
+                <ul class="button_list_container">
+                    <li class="button_list_buttons">
+                        <button class="button_container_buttons" onclick = "displayPage('search_container')">
+                            <p class="button_text">Search</p>
+                        </button>
+                    </li>
+                    <li id="infoHomeBtn" class="button_list_buttons">
+                        <button class="button_container_buttons" onclick = "displayPage('myinfo_container')">
+                            <p class="button_text">Personal Info</p>
+                        </button>
+                    </li>
+                    <li id="accHomeBtn" class="button_list_buttons">
+                        <button class="button_container_buttons" onclick = "displayPage('logIn_container')">
+                            <p class="button_text">Log In</p>
+                        </button>
+                    </li>
+                    <li class="button_list_buttons">
+                        <button id="serverName" class="button_container_buttons">
+                            <p id="nameFromServer" class="button_text"></p>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+        </header>
+
+        <div class="body_background">
+            <img class="body-double-img" src="body-background.jpg" alt="background_image"/>
+        </div>
+        <div class ="body_container"> 
+
+            <div id="search_container">
+                <input 
+                    type="search"
+                    id="search_bar"
+                    name="streamerName"
+                    placeholder="Search Streamer"
+                />
+                <p class="af">OR</p>
+                <div id="filter_container_button">
+                    <button id="genderSelection" class="filter_button" onclick = "displayBlock('gender_container')"> Gender </button>
+                    <button id="locationSelection" class="filter_button" onclick = "displayBlock('location_container')"> Location </button>
+                    <button id="ageSelection" class="filter_button" onclick = "displayBlock('age_container')"> Age</button>
+                    <button id="platformSelection" class="filter_button" onclick = "displayBlock('platform_container')"> Platform </button>
+                    <button id="teamSelection" class="filter_button" onclick = "displayBlock('team_container')"> Team </button>
+                    <button id="sponsorSelection" class="filter_button" onclick = "displayBlock('sponsor_container')"> Sponsor </button>
+                    <button id="gamesSelection" class="filter_button" onclick = "displayBlock('games_container')"> Games </button>
+                </div>
+        
+                <div class="filter_container_attri">
+                    <input 
+                        type="number"
+                        id="age_container"
+                        class="input_manual" 
+                        name="age"
+                        placeholder="Enter Age"
+                    />
+                    <select id="location_container" name="location" class="selector_box">
+                        <option class="given_font" value="">-- Select Location --</option>
+                    </select>
+                    <select id="gender_container" name="gender" onChange="" class="selector_box">
+                        <option class="given_font" value="">-- Select Gender --</option>
+                        <option class="ff" value="M">Male</option>
+                        <option class="ff" value="F">Female</option>
+                        <option class="ff" value="O">Other</option>
+                    </select>
+                    <select id="day_container" name="day" onChange="" class="selector_box">
+                        <option class="given_font" value="">-- Select Day --</option>
+                        <option class="ff" value="Monday"> Monday</option>
+                        <option class="ff" value="Tuesday"> Tuesday</option>
+                        <option class="ff" value="Wednesday"> Wednesday</option>
+                        <option class="ff" value="Thursday"> Thursday</option>
+                        <option class="ff" value="Friday"> Friday</option>
+                        <option class="ff" value="Saturday"> Saturday</option>
+                        <option class="ff" value="Sunday"> Sunday</option>
+                    </select>
+                    <select id="platform_container" name="platform" onChange="" class="selector_box">
+                        <option class="given_font" value="">-- Select Platform --</option>
+                        <option class="ff" value="Twitch"> Twitch</option>
+                        <option class="ff" value="YouTube"> YouTube</option>
+                        <option class="ff" value="Facebook"> Facebook</option>
+                    </select>
+                    <select id="team_container" name="team" class="selector_box">
+                        <option class="given_font" value="">-- Select Team --</option>
+                    </select>
+                    <select id="sponsor_container" name="sponsor" class="selector_box">
+                        <option class="given_font" value="">-- Select Sponsor --</option>
+                    </select>
+                    <div id="games_container">
+                        <label class ="checkbox_style">
+                            <input name="games" value="COD" type="checkbox"/>
+                            COD
+                        </label>
+                        <label class ="checkbox_style">
+                            <input name="games" value="Overwatch" type="checkbox"/>
+                            Overwatch
+                        </label>
+                        <label class ="checkbox_style">
+                            <input name="games" value="Fortnite" type="checkbox"/>
+                            Fornite
+                        </label>
+                        <label class ="checkbox_style">
+                            <input name="games" value="CSGO" type="checkbox"/>
+                            CSGO
+                        </label>
+                        <label class ="checkbox_style">
+                            <input name="games" value="AmongUs" type="checkbox"/>
+                            AmongUs
+                        </label>
+                        <label class ="checkbox_style">
+                            <input name="games" value="Minecraft" type="checkbox"/>
+                            Minecraft
+                        </label>
+                        <label class ="checkbox_style">
+                            <input name="games" value="LoL" type="checkbox"/>
+                            LoL
+                        </label>
+                        <label class ="checkbox_style">
+                            <input name="games" value="Valorant" type="checkbox"/>
+                            Valorant
+                        </label>
+                        <label class ="checkbox_style">
+                            <input name="games" value="Grounded" type="checkbox"/>
+                            Grounded
+                        </label>
+                        <label class ="checkbox_style">
+                            <input name="games" value="Conan Exiles" type="checkbox"/>
+                            Conan Exiles
+                        </label>
+                        <label class ="checkbox_style">
+                            <input name="games" value="Genshin Impact" type="checkbox"/>
+                            Genshin Impact
+                        </label>
+                        <label class ="checkbox_style">
+                            <input name="games" value="Fallguys" type="checkbox"/>
+                            Fallguys
+                        </label>
+                        <label class ="checkbox_style">
+                            <input name="games" value="WoW" type="checkbox"/>
+                            WoW
+                        </label>
+                        <label class ="checkbox_style">
+                            <input name="games" value="APEX" type="checkbox"/>
+                            APEX
+                        </label>
+                        <label class ="checkbox_style">
+                            <input name="games" value="Hearthstone" type="checkbox"/>
+                            Hearthstone
+                        </label>
+                        <label class ="checkbox_style">
+                            <input name="games" value="Watch Dogs" type="checkbox"/>
+                            Watch Dogs
+                        </label>
+                        <label class ="checkbox_style">
+                            <input name="games" value="Phasmophobia" type="checkbox"/>
+                            Phasmophobia
+                        </label>
+                    </div>
+                </div>
+
+                <br><br><br>
+                <button class="info_mod_button" name="runQ" onclick="runQuery()">Search</button>
+                <br><br><br>
+                <div class="result-container">
+                    <table name="result" id="result" class="printResult"></table>
+                </div>
+            </div>
+            <div id="logIn_container">
+                <h2>Login as:</h2>
+                <div id="loginType">
+                    <label class ="checkbox_style">
+                        <input name="loginAs" value="streamer" type="checkbox"/>
+                        streamer
+                    </label>
+                    <label class ="checkbox_style">
+                        <input name="loginAs" value="viewer" type="checkbox"/>
+                        viewer
+                    </label>
+                </div>
+                
+                <input id="userValue" type="text" class="logIn_Info" placeholder="Username"/>
+                <input id="passValue" type="password" class="logIn_Info" placeholder="Password"/>
+                
+                <br/>
+                <button value="LogIn" class="logInButton" onclick="login()">Login </button>
+                <button id="create_account" class="logInButton" onclick="createAccount('logIn_container','accTypeContainer')">Register</button>
+            </div>
+            <div id="accTypeContainer">
+                <h1 class="form-font">Choose Account Type: </h1>
+                <br/>
+                <label class="af">
+                    <input type="radio" name="accountType" value="streamer"/>
+                    Streamer
+                </label>
+                <label class="af">
+                    <input type="radio" name="accountType" value="viewer"/>
+                    Viewer
+                </label>
+                <br/>
+                <button id="accTypeSelected" value="acc-type" class="form-btn next-btn" onclick="selectedAccount()">Next</button>
+            </div>
+    
+            <div class="login-form-container">
+                <form id="streamer-form" class="form-1">
+                    <div class="steps form-step-1">
+                        <h1 class="form-font">Create S Account</h1>
+                        <br/>
+                        <input type="text" class="form-input" placeholder="Username" required/>
+                        <input type="password" class="form-input" placeholder="Password" required/>
+                        <br/>
+                        <button type="button" class="form-btn next-btn" onclick="nextStep(1,0)">Next</button>
+                    </div>
+                    <div class="steps form-step-2">
+                        <h2 class="form-font">Personal Infomation</h2>
+                        <input type="text" class="form-input" placeholder="Name" required/>
+                        <input type="text" class="form-input" placeholder="Gender" required/>
+                        <input type="text" class="form-input" placeholder="location" required/>
+                        <input type="number" class="form-input" placeholder="Age" required/>
+                        <br/>
+                        <button type="button" class="form-btn prev-btn" onclick="previousStep(-1,0)">Previous</button>
+                        <button type="button" class="form-btn next-btn" onclick="nextStep(1,0)">Next</button>
+                    </div>
+                    <div class="steps form-step-3">
+                        <h2 class="form-font">Streaming Info</h2>
+                        <input type="text" class="form-input" placeholder="Team" required/>
+                        <input type="text" class="form-input" placeholder="Platform" required/>
+                        <br/>
+                        <button type="button" class="form-btn prev-btn" onclick="previousStep(-1,0)">Previous</button>
+                        <button type="button" class="form-btn submit-btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="login-form-container">
+                <form id="viewer-form" class="form-2">
+                    <div class="steps form-step-1">
+                        <h1 class="form-font">Create V Account</h1>
+                        <br/>
+                        <input type="text" class="form-input" placeholder="Username" required/>
+                        <input type="password"class="form-input" placeholder="Password" required/>
+                        <br/>
+                        <button type="button" class="form-btn next-btn" onclick="nextStep(1,1)">Next</button>
+                    </div>
+                    <div class="steps form-step-2 ">
+                        <h2 class="form-font">Personal Infomation</h2>
+                        <input type="text" class="form-input" placeholder="Name" required/>
+                        <input type="text" class="form-input" placeholder="location" required/>
+                        <br/>
+                        <button type="button" class="form-btn prev-btn" onclick="previousStep(-1,1)">Previous</button>
+                        <button type="button" class="form-btn submit-btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div id="myinfo_container">
+                <div class ="user_info_container">
+                    <table id ="user_streamer_Info">
+                    </table>
+                </div>
+                <button class="info_mod_button"> Edit </button>
+            </div>
+            <div id="home_container">
+            </div>
+        <!--
+            <div class="result-container">
+                <table name="result" id="result" class="printResult">
+                    <thead >
+                        <tr>
+                            <th class="tbl-header">Streamer</th>
+                            <th class="tbl-header">Location</th>
+                        </tr>
+                        <tr >
+                            <td class="tbl-data">Disguised Toast</td>
+                            <td class="tbl-data">CANADA</td>
+                        </tr>
+                        <tr>
+                            <td class="tbl-data">Gloom</td>
+                            <td class="tbl-data">CANADA</td>
+                        </tr>
+                        <tr>
+                            <td class="tbl-data">Kitty Plays</td>
+                            <td class="tbl-data">CANADA</td>
+                        </tr>
+                        <tr>
+                            <td class="tbl-data">Natsumiii</td>
+                            <td class="tbl-data">CANADA</td>
+                        </tr>
+                        <tr>
+                            <td class="tbl-data">Shroud</td>
+                            <td class="tbl-data">CANADA</td>
+                        </tr>
+                        <tr>
+                            <td class="tbl-data">xChocoBars</td>
+                            <td class="tbl-data">CANADA</td>
+                        </tr>
+                        <tr>
+                            <td class="tbl-data">xQcOW</td>
+                            <td class="tbl-data"> CANADA</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        -->
+        </div>
+    </body>
+
+</html>
+
+
