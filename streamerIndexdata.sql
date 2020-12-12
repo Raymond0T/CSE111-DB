@@ -230,12 +230,12 @@ INSERT INTO streamer(s_name, s_gender, s_accDate, s_nationid, s_birthday, s_stre
     ('Neytiri','F','2019-12-06',24,23,'Sunday','Twitch','N/A','00353CE','Minecraft, Valorant, Genshin Impact',100000),
     ('Fuslie','F','2019-04-13',24,27,'Tuesday','Twitch','N/A','001DC39','Valorant, AmongUs, Minecraft',496000),
     ('ItsRyanHiga','M','2014-01-15',24,30,'Monday','Twitch','N/A','00040BA','Valorant, AmongUs, Minecraft',301000),
-    ('Gloom','F','2017-03-14',3,29,'Thursday','Youtube','N/A','00098B9','AmongUs',5700000),
+    ('Gloom','F','2017-03-14',3,29,'Thursday','YouTube','N/A','00098B9','AmongUs',5700000),
     ('BrookeAB','F','2018-08-22',24,21,'Friday','Twitch','100 Thieves','002E68B','COD, AmongUs, Phasmophobia',841000),
     ('IHasCupquake','F','2013-06-17',24,32,'Thursday','Twitch','N/A','002634F','AmongUs, Phasmophobia, The Long Dark',179000),
     ('Smajor1995','M','2020-03-15',23,24,'Wednesday','Twitch','N/A','00292A9','AmongUs, Minecraft, Phasmophobia',200000),
     ('LDShadowLady','F','2017-03-08',23,28,'Monday','Twitch','N/A','000E896','AmongUs, Minecraft, Sims',242000),
-    ('MrBeast','M','2017-05-13',24,22,'Tuesday','Youtube','N/A','001AD50','Minecraft, AmongUs',10300000),
+    ('MrBeast','M','2017-05-13',24,22,'Tuesday','YouTube','N/A','001AD50','Minecraft, AmongUs',10300000),
     ('Jacksepticeye','M','2014-07-27',23,30,'Thursday','Twitch','N/A','0021CF4','APEX, AmongUs, FallGuys',1600000),
     ('Georgenotfound','M','2019-01-29',23,23,'Wednesday','Twitch','N/A','000766C','AmongUs, Phasmophobia, Minecraft',1300000),
     ('TSM_Bjergsen','M','2018-06-11',10,24,'Saturday','Twitch','TSM','000029D','LoL',1500000),
@@ -470,7 +470,7 @@ INSERT INTO sponsor(spon_streamName, spon_streamkey, spon_company) VALUES
     ('Ludwig','00340A0','LOGITECH'),
     ('Becca','003251D','AMD'),
     ('xChocoBars','001754C','NVIDIA'),
-    ('Neeko','001006B','NVIDIA'),
+    ('Neeko','001006B','TOTINOS'),
     ('Natsumiii','000ECE6','AMD');
 
 
@@ -697,3 +697,5 @@ WHERE s_birthday < '27';
 
 SELECT * 
 FROM streamer;
+
+
