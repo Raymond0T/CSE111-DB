@@ -42,6 +42,17 @@ class handleSql {
             "SELECT DISTINCT n_name FROM nation ORDER BY n_name", [])
     }
 
+    //------------------------------------------------ UPDATE ACCOUNT INFO---------------------------------------------
+    updateStreamer(_s_gender, _s_name, _s_birthday,_s_platform){
+
+        return this.all(
+            "update streamer " + 
+            "set s_gender = COALESCE(?, s_gender), " + 
+            "s_birthday = COALESCE(?, s_birthday), " +
+            "s_platform = COALESCE(?, s_platform) " +  
+            "WHERE s_name = '" + _s_name +"' ", [_s_gender,_s_birthday, _s_platform])
+    }
+
     //------------------------------------------------ CHECKING THE PASSWORD AND USERNAME---------------------------------------------
     accountStreamer(_as_streamid, _as_password){
         return this.all(
@@ -196,7 +207,7 @@ class handleSql {
     }
     byF2F5(_n_name, _s_team){
         return this.all(
-            "SELECT s_name AS Streamer, n_name AS Location, s_tean AS tean " +
+            "SELECT s_name AS Streamer, n_name AS Location, s_team AS team " +
             "FROM streamer, nation " +
             "WHERE s_nationid = n_nationid AND " +
             "s_team = '" + _s_team + "' AND " +

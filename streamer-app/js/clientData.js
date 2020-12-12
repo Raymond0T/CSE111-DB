@@ -5,6 +5,8 @@ window.onload = function(){
    populateSponsor();
 }
 
+
+
 function populateLocation(){
    let selLocation= document.getElementById('location_container');
    
@@ -77,8 +79,7 @@ function populateStreamerTeam() {
 }
 
 
- 
-
+//Get data from the server and databasr
  function runQuery() {
    let selGender = document.getElementById('gender_container').value;
    let selLocation = document.getElementById('location_container').value;
@@ -163,6 +164,8 @@ function populateStreamerTeam() {
       )
 }
 
+
+//To deal with login activities
 function login(){
    let type = [...document.querySelectorAll('input[name=loginAs]:checked')].map((x) => x.value);
    let username = document.getElementById('userValue').value;
@@ -185,6 +188,7 @@ function login(){
 
    
    const API_URL = `http://127.0.0.1:8092/api/account/login/${acc}/${username}-${password}`;
+   
 
    axios.get(`${API_URL}`)
       .then(response => {
@@ -193,19 +197,111 @@ function login(){
             return;
          }
 
-          
+          //Display the name of the user at the home tab
          for (x=0; x<response.data.data.length; x++) {
-             //console.log(response.data.data[x].maker);
+
             for (k in response.data.data[x]) {
                //console.log(k);    
                let text = document.createTextNode(response.data.data[x][k]);
-               homeResult.innerHTML="Welcome, ";
+               homeResult.innerHTML += "Welcome, ";
                homeResult.appendChild(text);
                break;
             }
          }
 
+         //Display the user infomation
          let thead = infoResult.createTHead();
+         let row = thead.insertRow();
+         for (key in response.data.data[0]) {
+             //console.log(key);
+
+            let th = document.createElement("th");
+            let text = document.createTextNode(key);
+            th.classList.add('tbl-header');
+            th.appendChild(text);
+            row.appendChild(th);
+         }
+          
+         for (x=0; x<response.data.data.length; x++) {
+            let row = infoResult.insertRow();
+            
+            for (k in response.data.data[x]) {
+               console.log(k);    
+               let cell = row.insertCell();
+               let text = document.createTextNode(response.data.data[x][k]);
+               cell.appendChild(text);
+               cell.classList.add('tbl-data');
+            }
+         }
+
+         logDisplay.style.display="none";
+         logBtn.style.display="none";
+         infoBtn.style.display="block";
+      
+      })
+      .catch(error =>
+         console.error('login', error)
+      )
+
+
+}
+
+function editData(){
+   let editPage = document.getElementById('editDataPage');
+   let infoPage = document.getElementById('myinfo_container');
+
+   infoPage.style.display ="none";
+   editPage.style.display ="block";
+}
+
+function updateData(){
+   let gender = document.getElementById('genderUpdate').value;
+   let data = [...document.querySelectorAll('input[name=edit]')].map((x) => x.value);
+   let text = document.getElementById('nameFromServer').textContent;
+   let name = text.split(" ");
+   let streamer = name[1];
+   
+   //remove the edit page section
+   let editPage = document.getElementById('editDataPage');
+   let infoPage = document.getElementById('myinfo_container');
+
+   infoPage.style.display ="block";
+   editPage.style.display ="none";
+
+   console.log(streamer);
+   let API_URL = `http://127.0.0.1:8092/api/account/update/${gender}-${streamer}-${data[1]}-${data[3]}`;
+   let endpoint = 'update/';
+   console.log(API_URL);
+   /*
+   if(gender === 'none'){
+      endpoint += '-';
+   }
+
+   for(let i = 0; i < data.length; i++){
+      if(data[i] == "" && i != data.length - 1){
+         endpoint += '-';
+      }
+      else if(data[i] == "" && i == data.length -1){
+         endpoint += '--';
+      }
+      else if(data[data.length - 1] != "" && i == data.length -1){
+         endpoint += '-';
+      }
+      else{
+         endpoint += data[i];
+      }
+   }
+*/
+   //API_URL += endpoint;
+
+   axios.get(`${API_URL}`)
+      .then(response => {
+
+         if (response.data.data.length == 0) {
+            return;
+         }
+
+         let thead = result.createTHead();
          let row = thead.insertRow();
          for (key in response.data.data[0]) {
              //console.log(key);
@@ -220,7 +316,7 @@ function login(){
          for (x=0; x<response.data.data.length; x++) {
              //console.log(response.data.data[x].maker);
 
-            let row = infoResult.insertRow();
+            let row = result.insertRow();
             
             for (k in response.data.data[x]) {
                console.log(k);    
@@ -230,18 +326,13 @@ function login(){
                cell.classList.add('tbl-data');
             }
          }
-
-
-         logDisplay.style.display="none";
-         logBtn.style.display="none";
-         infoBtn.style.display="block";
       
       })
       .catch(error =>
-         console.error('runQuery', error)
+         console.error('update', error)
       )
 
-      
-      
+
 
 }
+

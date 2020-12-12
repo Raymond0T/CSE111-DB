@@ -17,6 +17,8 @@ app.use(function (req, res, next) {
     next();
 });
 
+
+
 // Start server
 app.listen(HTTP_PORT, () => {
     console.log("Server running on port %PORT%".replace("%PORT%", HTTP_PORT))
@@ -60,7 +62,7 @@ app.get("/api/streamers/team", (req, res, next) => {
         })
 });
 
-////API endpoint to get all the options for sponpor for the user selection 
+////API endpoint to get all the options for sponsor for the user selection 
 app.get("/api/sponsor/company", (req, res, next) => {
     computers.allSponsor()
         .then((sponsorComp) => {
@@ -75,6 +77,22 @@ app.get("/api/sponsor/company", (req, res, next) => {
         })
 });
 
+//----------------------------------------- UPDATE THE USER INFORMATIONS -----------
+app.get("/api/account/update/:gender-:streamer-:age-:platform", (req, res, next) => {
+    
+    computers.updateStreamer(req.params.gender, req.params.streamer, req.params.age,req.params.platform)
+    .then((acc) => {
+        res.json({
+            "message": `success`,
+            "data": acc
+        })
+    })
+    .catch((err) => {
+        res.status(400).json({ "error": err.message });
+        return;
+    })
+});
+
 
 //----------------------------------------- GET THE USERNAME AND PASSWORD
 app.get("/api/account/login/streamer/:username-:password", (req, res, next) => {
@@ -82,7 +100,7 @@ app.get("/api/account/login/streamer/:username-:password", (req, res, next) => {
     computers.accountStreamer(req.params.username,req.params.password)
         .then((acc) => {
             res.json({
-                "message": `Streamer by ${req.params.username}`,
+                "message": `Login ${req.params.username}`,
                 "data": acc
             })
         })
