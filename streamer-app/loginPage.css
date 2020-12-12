@@ -79,13 +79,7 @@
 .active, #create-page{
     display: block;
 }
-.af{
-    margin:0;
-    padding: 10px 0 10px 0;
-    font-size: 32px;
-    text-align: center;
-    color: black;
-}
+
 
 #accTypeContainer{
     background-color: rgb(241, 244, 250);

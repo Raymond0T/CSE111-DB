@@ -13,6 +13,12 @@ h2{
     text-align: center;
     color: white;
 }
+.ef{
+    margin:0;
+    padding: 10px 0 10px 0;
+    font-size: 32px;
+    color: white;
+}
 .ff{
     margin:0;
     padding: 0.5rem;

@@ -211,8 +211,10 @@
                 <input id="passValue" type="password" class="logIn_Info" placeholder="Password"/>
                 
                 <br/>
+
                 <button value="LogIn" class="logInButton" onclick="login()">Login </button>
-                <button id="create_account" class="logInButton" onclick="createAccount('logIn_container','accTypeContainer')">Register</button>
+                
+                <!--onclick="createAccount('logIn_container','accTypeContainer')"-->
             </div>
             <div id="accTypeContainer">
                 <h1 class="form-font">Choose Account Type: </h1>
@@ -284,9 +286,45 @@
                     <table id ="user_streamer_Info">
                     </table>
                 </div>
-                <button class="info_mod_button"> Edit </button>
+                <button class="info_mod_button" onclick="editData()"> Edit </button>
             </div>
-            <div id="home_container">
+            <div id="editDataPage">
+                <ul>
+                    <li class="ef"> 
+                        Gender: 
+                        <select id="genderUpdate" name="gender" onChange="" class="selector_box">
+                            <option class="given_font" value="">-- Select Gender --</option>
+                            <option class="ff" value="M">Male</option>
+                            <option class="ff" value="F">Female</option>
+                            <option class="ff" value="O">Other</option>
+                        </select>
+                    </li>
+                    <li class="ef"> 
+                        Location: 
+                        <input class="input_manual" name="edit" value="" type="text"placeholder="Enter New Location"/>
+                    </li>
+                    <li class="ef">  
+                        Age: 
+                        <input class="input_manual" name="edit" value="" type="number"placeholder="Current Age"/>
+                    </li>
+                    <li class="ef"> 
+                        Streaming Day:
+                        <input class="input_manual" name="edit" value="" type="text"placeholder="Ex: Monday, Tuesday, ..."/>
+                    </li>
+                    <li class="ef"> 
+                        Streaming Platform:
+                        <input class="input_manual" name="edit" value="" type="text"placeholder="Ex: Twitch, YouTube, ..."/>
+                     </li>
+                    <li class="ef"> 
+                        Team: 
+                        <input class="input_manual" name="edit" value="" type="text"placeholder="Current Team"/>
+                    </li>
+                    <li class="ef"> 
+                        Password 
+                        <input class="input_manual" name="edit" value="" type="password"placeholder="Enter New Password"/>
+                    </li>
+                </ul>
+                <button class="info_mod_button" onclick="updateData()"> Update </button>
             </div>
         <!--
             <div class="result-container">
